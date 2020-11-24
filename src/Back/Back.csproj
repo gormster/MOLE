@@ -174,6 +174,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('OSX'))">
+    <None Include="packages\libasar.dylib">
+      <Link>libasar.dylib</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="ico.ico" />
   </ItemGroup>
@@ -181,4 +187,7 @@
   <ProjectExtensions>
     <VisualStudio AllowExistingFolder="true" />
   </ProjectExtensions>
+  <Target Name="AfterBuild" Condition="$([MSBuild]::IsOsPlatform('OSX'))">
+    <Exec WorkingDirectory="$(OutputPath)" Command="mkbundle -o Back Back.exe --deps --static --sdk /Library/Frameworks/Mono.framework/Versions/Current --library libasar.dylib " />
+  </Target>
 </Project>
