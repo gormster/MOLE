@@ -11,19 +11,6 @@ If you still insist on running MOLE in its current very early stages, read the f
 ___
 ### How to Build
 	(SECTION WIP)
-
-    #### macOS
-
-    WIP. For now, this is just going to be instructions for building the Back executable.
-
-    ##### Dependencies
-    1. Install [mono](https://www.mono-project.com/download/stable/)
-    2. Run `nuget install -OutputDirectory packages` in the src/Back directory.
-    3. Download and build [ASAR](https://github.com/RPGHacker/asar).
-    4. Copy libasar.dylib to the src/Back/packages directory. (TODO: is there a better way to do this?)
-
-    ##### Build
-    Just run `msbuild` in the src/Back directory. Then you can run `./bin/Debug/Back`.
 ___
 ### Localization/Translation
 	(SECTION WIP)
